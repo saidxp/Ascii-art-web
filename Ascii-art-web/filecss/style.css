@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Full viewport height */
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;  /* Adjusted width to make container more flexible */
+    max-width: 800px;  /* Max width to prevent the container from getting too large */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.ascii-output {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    white-space: pre-wrap;  /* Ensures that text wraps inside the <pre> block */
+    word-wrap: break-word;  /* Breaks long words to prevent overflow */
+    overflow-wrap: break-word;  /* Prevents long words from overflowing */
+    text-align: left;
+    font-family: monospace;
+    width: 100%; /* Ensures the container doesn't overflow */
+    box-sizing: border-box; /* Ensures padding doesn't increase container size */
+    max-width: 100%;  /* Ensures the container doesn't exceed the page width */
+    overflow-x: auto;  /* Adds horizontal scrolling if the content is too wide */
+}

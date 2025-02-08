@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/filecss/style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .ascii-output {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    white-space: pre-wrap;  /* Ensures text wraps inside the <pre> block */
+    word-wrap: break-word;  /* Breaks long words to prevent overflow */
+    overflow-wrap: break-word;  /* Prevents long words from overflowing */
+    text-align: left;
+    font-family: monospace;
+    width: 100%; /* Ensures the container doesn't overflow */
+    box-sizing: border-box; /* Ensures padding doesn't increase container size */
+    max-width: 100%;  /* Ensures the container doesn't exceed the page width */
+    overflow-x: auto;  /* Adds horizontal scrolling if the content is too wide */
+    overflow-y: hidden;  /* Prevents vertical overflow */
+}
+
+    </style>
+</head>    
+
+<body>
+    <div class="container">
+        <h1>ASCII Art Generator</h1>
+        <p>{{ .Message }}</p>
+        <h2>{{ .Hope }}</h2>
+
+        <form method="POST" action="/submit">
+            <label for="inputString">Type your string:</label>
+            <textarea id="inputString" name="name" rows="2" placeholder="First line here\nSecond line here"></textarea>
+            <button type="submit">Send</button>
+
+            <div>
+                <input type="radio" id="standard" name="asciid" value="standard.txt" checked >
+                <label for="standard">Standard</label>
+
+                <input type="radio" id="shadow" name="asciid" value="shadow.txt">
+                <label for="shadow">Shadow</label>
+
+                <input type="radio" id="thinkertoy" name="asciid" value="thinkertoy.txt">
+                <label for="thinkertoy">Thinkertoy</label>
+            </div>
+        </form>
+        <div class="ascii-output">
+            <h2>ASCII Output:</h2>
+            <pre>{{range .ASCIIOutput}}{{range .}}{{.}}{{end}}{{end}} </pre>
+        </div>
+    </div>
+</body>
+</html>
